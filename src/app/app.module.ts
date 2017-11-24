@@ -7,13 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
-import { ItemsService } from './shared';
+import { ItemsService, GizmoService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { ItemsListComponent } from './items/items-list/items-list.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { HomeComponent } from './home/home.component';
+import { GizmoComponent } from './gizmo/gizmo.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     ItemsComponent,
     ItemsListComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    GizmoComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,7 +33,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [ItemsService],
+  providers: [ItemsService, GizmoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

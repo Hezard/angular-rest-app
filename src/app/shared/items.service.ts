@@ -13,7 +13,10 @@ const HEADER = {headers: new Headers({'Content-Type': 'application/json'})};
 
 @Injectable()
 export class ItemsService {
+  status: string;
+  
   constructor(private http: Http) {
+    this.status = "THIS IS SERVICE!";
   }
 
   all() {
