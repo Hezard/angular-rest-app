@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ItemsComponent } from './items/items.component';
 import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
+import { WidgetsComponent } from 'app/widgets/widgets.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'gizmo', component: GizmoComponent},
   {path: 'items', component: ItemsComponent},
+  {path: 'widgets', component: WidgetsComponent},  
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

@@ -1,0 +1,7 @@
+<h2>{{title}}</h2>
+<p>
+  widgets works! {{unexist?.propName}}
+</p>
+<input matInput [(ngModel)]="color" type="text" />
+<h3 [style.color]="color">{{color}}</h3>    
+<button (click)="log(color)">Log color</button> 

@@ -10,8 +10,8 @@ import { gizmoItem, GizmoService } from '../shared/gizmo.service';
 
 
 export class GizmoComponent implements OnInit {
-  item = <gizmoItem>{}; 
-
+  item: gizmoItem; 
+  
   constructor(private GizmoService: GizmoService) { }
 
   ngOnInit() {
