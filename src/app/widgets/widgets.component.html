@@ -1,7 +1,49 @@
-<h2>{{title}}</h2>
-<p>
-  widgets works! {{unexist?.propName}}
-</p>
-<input matInput [(ngModel)]="color" type="text" />
-<h3 [style.color]="color">{{color}}</h3>    
-<button (click)="log(color)">Log color</button> 
+<div class="container">
+    <!-- WIDGETS LIST -->
+    <pre>{{widgets | json}}</pre>
+    <div class="col-50">
+      <md-card>
+        <md-card-header>
+          <md-card-title>
+            <h1>Widgets</h1>
+          </md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <md-list>
+            <md-list-item>
+              <h3 md-line>WIDGET NAME</h3>
+              <button md-icon-button>
+                <md-icon>close</md-icon>
+              </button>
+              <p md-line>
+                WIDGET DESCRIPTION
+              </p>
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  
+  
+    <!-- WIDGET DETAILS -->
+    <div class="col-50">
+      <md-card>
+        <md-card-header>
+          <md-card-title>
+            <h1>
+              Select a Widget
+            </h1>
+          </md-card-title>
+        </md-card-header>
+        <form>
+          <md-card-content>
+            SELECTED WIDGET DETAILS
+          </md-card-content>
+          <md-card-actions>
+            <button type="submit" md-button>Save</button>
+            <button type="button" md-button>Cancel</button>
+          </md-card-actions>
+        </form>
+      </md-card>
+    </div>
+  </div>
