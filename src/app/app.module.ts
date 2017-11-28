@@ -16,6 +16,8 @@ import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
+import { WidgetDetailsComponent } from './widgets/widget-details/widget-details.component';
 import { ReviewsComponent } from 'app/reviews/reviews.component';
 
 @NgModule({
@@ -27,6 +29,8 @@ import { ReviewsComponent } from 'app/reviews/reviews.component';
     ItemDetailComponent,
     GizmoComponent,
     WidgetsComponent,
+    WidgetsListComponent,
+    WidgetDetailsComponent,
     ReviewsComponent
   ],
   imports: [

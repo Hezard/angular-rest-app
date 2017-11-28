@@ -1,0 +1,35 @@
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>
+                <span *ngIf="widget?.id; else alert">{{widgetName}}</span>
+                <ng-template #alert>
+                    Please select widget  
+                </ng-template>
+            </h1>
+          </mat-card-title>
+        </mat-card-header>
+        <form #formWidget="ngForm" (submit)="onSave.emit(widget)">
+          <mat-card-content>
+            <mat-input-container class="full-width">
+                <input matInput placeholder="Name" 
+                  [(ngModel)]="widget.name" 
+                  type="text" name="name" required>
+            </mat-input-container>
+            <mat-input-container class="full-width">
+              <input matInput 
+                placeholder="Description" 
+                [(ngModel)]="widget.description"
+                 type="text"
+                 name="description">
+            </mat-input-container>
+          </mat-card-content>
+          <mat-card-actions>
+            <button 
+              type="submit" 
+              [disabled]="!formWidget.valid" 
+              mat-button>Save</button>
+            <button type="button" (click)="onCancel.emit()" mat-button>Cancel</button>
+          </mat-card-actions>
+        </form>
+      </mat-card>

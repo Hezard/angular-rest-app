@@ -16,7 +16,29 @@ export class WidgetsComponent implements OnInit {
   constructor(private widgetsService: WidgetsService) { }
 
   ngOnInit() {
-   this.widgets = this.widgetsService.getWidgets();
+    this.widgets = this.widgetsService.getWidgets();
+    this.reset();
+  }
+
+  saveWidget(widget: WidgetItem) {
+    console.log("saving widget: ", widget);
+    this.reset();
+  }
+
+  reset() {
+    this.selectedWidget = {
+      id: null,
+      name: '',
+      description: ''
+    };
+  }
+
+  cancel() {
+    this.reset();
+  }
+  
+  deleteWidget(widget: WidgetItem){
+    console.log("deleting widget: ", widget)
   }
 
   selectWidget(widget: WidgetItem) {

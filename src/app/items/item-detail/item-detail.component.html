@@ -7,17 +7,28 @@
       </h1>
     </mat-card-title>
   </mat-card-header>
-  <form (submit)="saved.emit(selectedItem)">
+  <form #myForm="ngForm" (submit)="saved.emit(selectedItem)">
     <mat-card-content>
       <mat-input-container class="full-width">
-        <input matInput placeholder="Name" [(ngModel)]="selectedItem.name" type="text" name="name">
+        <input matInput
+          #nameInput="ngModel" 
+          placeholder="Name" 
+          [(ngModel)]="selectedItem.name" 
+          type="text" name="name"
+          required>
       </mat-input-container>
       <mat-input-container class="full-width">
         <input matInput placeholder="Description" [(ngModel)]="selectedItem.description" type="text" name="description">
       </mat-input-container>
+      <hr>
+      <pre>
+          {{myForm.value | json}}
+      </pre>
+      <br>
+      {{myForm.valid}}
     </mat-card-content>
     <mat-card-actions>
-      <button type="submit" mat-button>Save</button>
+      <button type="submit" [disabled]="!myForm.valid" mat-button>Save</button>
       <button type="button" mat-button (click)="cancelled.emit(selectedItem)">Cancel</button>
     </mat-card-actions>
   </form>
