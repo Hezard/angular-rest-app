@@ -1,0 +1,11 @@
+
+<ul>
+    <li *ngFor="let review of reviewsList" [attr.id]="review.id">
+        <b>
+            {{review.title}}
+        </b>
+        <p>
+            {{review.message}}
+        </p>
+    </li>
+</ul>
