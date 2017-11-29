@@ -16,13 +16,28 @@ export class WidgetsComponent implements OnInit {
   constructor(private widgetsService: WidgetsService) { }
 
   ngOnInit() {
-    this.widgets = this.widgetsService.getWidgets();
+    this.loadWidgets();
     this.reset();
   }
 
+  loadWidgets() {
+    this.widgetsService.all().subscribe(
+      widgets => this.widgets = widgets
+    );
+  }
+
   saveWidget(widget: WidgetItem) {
-    console.log("saving widget: ", widget);
-    this.reset();
+    if (widget.id) {
+      this.widgetsService.update(widget).subscribe(response => {
+        this.loadWidgets();
+        this.reset();
+      });
+    } else {
+      this.widgetsService.create(widget).subscribe(response => {
+        this.loadWidgets();
+        this.reset();
+      });
+    }
   }
 
   reset() {
@@ -38,7 +53,10 @@ export class WidgetsComponent implements OnInit {
   }
   
   deleteWidget(widget: WidgetItem){
-    console.log("deleting widget: ", widget)
+    this.widgetsService.delete(widget.id).subscribe(response => {
+      this.loadWidgets();
+      this.reset();
+    })
   }
 
   selectWidget(widget: WidgetItem) {

@@ -1,0 +1,6 @@
+<p>
+  {{currentStatus}}
+  <br>
+
+  <button *ngIf="currentStatus != 'unlogged'" type="button" (click)="onLogout.emit(event)" mat-button>Logout</button>
+</p>

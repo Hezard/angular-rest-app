@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,6 +19,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
 import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
 import { WidgetDetailsComponent } from './widgets/widget-details/widget-details.component';
 import { ReviewsComponent } from 'app/reviews/reviews.component';
+import { StatusComponent } from './status/status.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,15 @@ import { ReviewsComponent } from 'app/reviews/reviews.component';
     WidgetsComponent,
     WidgetsListComponent,
     WidgetDetailsComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    StatusComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     AppMaterialModule

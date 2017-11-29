@@ -10,11 +10,17 @@ import { Item } from '../shared/item.model';
 })
 export class HomeComponent implements OnInit {
   items: Item[];
+  status: string = 'logged';
 
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
     this.getItems();
+  }
+
+  logout(event) {
+    this.status = 'unlogged';
+    console.log('logout!')
   }
 
   getItems() {
