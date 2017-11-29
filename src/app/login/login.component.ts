@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  onSubmit({value, valid}){
+  onSubmit({value, valid}: {value: Login, valid: boolean}){
     console.log(value, valid);
     this.resetForm();
   }
