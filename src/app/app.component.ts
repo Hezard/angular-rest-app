@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
     { path: '/items', icon: 'list', label: 'Items'},
     { path: '/reviews', icon: 'list', label: 'Reviews'},
     { path: '/widgets', icon: 'view_quilt', label: 'Widgets'},    
-    { path: '/gizmo', icon: 'list', label: 'Gizmo'}
+    { path: '/gizmo', icon: 'list', label: 'Gizmo'},
+    { path: '/lazy', icon: 'home', label: 'Lazy Module'}
   ];
   
   constructor(private ns: NotificationsService,
