@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
-import { ItemsService, GizmoService, WidgetsService } from './shared';
+import { ItemsService, GizmoService, NotificationsService, WidgetsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -21,6 +21,7 @@ import { WidgetDetailsComponent } from './widgets/widget-details/widget-details.
 import { ReviewsComponent } from 'app/reviews/reviews.component';
 import { StatusComponent } from './status/status.component';
 import { LoginComponent } from './login/login.component';
+import { WidgetItemComponent } from './widgets/widget-item/widget-item.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     WidgetDetailsComponent,
     ReviewsComponent,
     StatusComponent,
-    LoginComponent
+    LoginComponent,
+    WidgetItemComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -46,7 +48,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [ItemsService, GizmoService, WidgetsService],
+  providers: [ItemsService, NotificationsService, GizmoService, WidgetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WidgetsService } from 'app/shared/widgets.service';
 import { WidgetItem } from 'app/shared/widget.model';
+import { NotificationsService } from 'app/shared/notifications.service';
 
 
 
@@ -13,7 +14,7 @@ export class WidgetsComponent implements OnInit {
   widgets: WidgetItem[]; // or Array<WidgetItem>
   selectedWidget: WidgetItem;
 
-  constructor(private widgetsService: WidgetsService) { }
+  constructor(private widgetsService: WidgetsService, private ns: NotificationsService) { }
 
   ngOnInit() {
     this.loadWidgets();
@@ -29,11 +30,13 @@ export class WidgetsComponent implements OnInit {
   saveWidget(widget: WidgetItem) {
     if (widget.id) {
       this.widgetsService.update(widget).subscribe(response => {
+        this.ns.emit({body: 'Item was updated!'});
         this.loadWidgets();
         this.reset();
       });
     } else {
       this.widgetsService.create(widget).subscribe(response => {
+        this.ns.emit({body: 'Item was created!'});
         this.loadWidgets();
         this.reset();
       });
@@ -54,6 +57,7 @@ export class WidgetsComponent implements OnInit {
   
   deleteWidget(widget: WidgetItem){
     this.widgetsService.delete(widget.id).subscribe(response => {
+      this.ns.emit({body: 'Item was deleted!'});
       this.loadWidgets();
       this.reset();
     })
